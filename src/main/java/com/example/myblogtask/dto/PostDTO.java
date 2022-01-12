@@ -9,8 +9,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostDTO {
+    private String postId;
     private String title;
     private String body;
+    private String name;
+    private String email;
+    private int likesCount;
+    private int commentsCount;
+    private boolean likedPost;
+    private Long userId;
 
 
 }

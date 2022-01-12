@@ -27,6 +27,8 @@ public class Post extends TimeStamps{
     @Column(nullable = false)
     private String body;
 
+    private int likesCount;
+
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -50,6 +52,14 @@ public class Post extends TimeStamps{
     public String getBody() {return body;}
 
     public void setBody(String body) {this.body = body;}
+
+    public int getLikesCount() {
+        return likesCount;
+    }
+
+    public void setLikesCount(int likesCount) {
+        this.likesCount = likesCount;
+    }
 
     public UserDetails getUser() {
         return user;

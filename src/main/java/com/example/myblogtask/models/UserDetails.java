@@ -36,11 +36,11 @@ public class UserDetails {
     private String gender;
 
     @OneToMany
-    @JsonBackReference
+//    @JsonBackReference
     private List<UserDetails> friends;  // List of friends that can see ur post
 
     @OneToMany
-    @JsonManagedReference
+//    @JsonManagedReference
     private List<Post> favoritePosts;
 
     public Long getId() {return id;}

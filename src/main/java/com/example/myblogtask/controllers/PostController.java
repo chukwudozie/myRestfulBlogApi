@@ -4,6 +4,8 @@ import com.example.myblogtask.models.Post;
 import com.example.myblogtask.models.UserDetails;
 import com.example.myblogtask.services.PostService;
 import com.example.myblogtask.services.UserService;
+import com.example.myblogtask.services.serviceImpl.PostServiceImpl;
+import com.example.myblogtask.services.serviceImpl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +16,11 @@ import java.util.Optional;
 @RequestMapping("/blogpost")
 public class PostController {
 
-    private PostService postService;
-    private UserService userService;
+    private PostServiceImpl postService;
+    private UserServiceImpl userService;
 
     @Autowired
-    public PostController(PostService postService, UserService userService1) {
+    public PostController(PostServiceImpl postService, UserServiceImpl userService1) {
         this.postService = postService;
         this.userService = userService1;
     }

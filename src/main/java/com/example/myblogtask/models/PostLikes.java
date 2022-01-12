@@ -22,4 +22,6 @@ public class PostLikes {
     @OneToOne
     @JoinColumn(name = "postId", referencedColumnName = "postId")
     private Post post;
+
+    private int likesCount;
 }

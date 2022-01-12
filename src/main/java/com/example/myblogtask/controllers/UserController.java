@@ -1,7 +1,6 @@
 package com.example.myblogtask.controllers;
 
 import com.example.myblogtask.models.UserDetails;
-import com.example.myblogtask.services.UserService;
 import com.example.myblogtask.services.serviceImpl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
 
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 

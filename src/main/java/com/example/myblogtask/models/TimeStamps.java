@@ -18,8 +18,8 @@ public abstract class TimeStamps {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_created", nullable = false, updatable = false)
     @CreatedDate
-
     private Date dateCreated;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_Modified", nullable = false)
     @LastModifiedDate

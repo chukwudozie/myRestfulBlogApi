@@ -21,6 +21,9 @@ public class Comment extends TimeStamps {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String comment;
 
+    @Transient
+    private int likesCount; //Holds the number of counts for a comment
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     @JoinColumn(name = "postId", referencedColumnName = "postId")

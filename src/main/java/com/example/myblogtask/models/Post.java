@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
 
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 //@ToString
@@ -27,15 +29,18 @@ public class Post extends TimeStamps{
     @Column(nullable = false)
     private String body;
 
-    private int likesCount;
+    @Transient
+    private int likesCount; //Holds the number of counts for a post
 
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "user_id", referencedColumnName = "id")
 //    private UserDetails users;
 
-    @OneToOne
+//    @JsonManagedReference
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id",referencedColumnName = "id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private UserDetails user;
 
     @OneToMany(mappedBy = "post")

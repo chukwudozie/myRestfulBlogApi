@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
@@ -35,13 +37,20 @@ public class UserDetails {
     @Column(nullable = false)
     private String gender;
 
+//    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonBackReference
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private List<Post> post;
+
     @OneToMany
 //    @JsonBackReference
     private List<UserDetails> friends;  // List of friends that can see ur post
 
-    @OneToMany
+
+
 //    @JsonManagedReference
-    private List<Post> favoritePosts;
+//    @ManyToMany
+//    private List<Post> favoritePosts;
 
     public Long getId() {return id;}
 
@@ -71,13 +80,17 @@ public class UserDetails {
 
     public void setFriends(List<UserDetails> friends) {this.friends = friends;}
 
-    public List<Post> getFavoritePosts() {
-        return favoritePosts;
-    }
+//    public List<Post> getFavoritePosts() {
+//        return favoritePosts;
+//    }
+//
+//    public void setFavoritePosts(List<Post> favoritePosts) {
+//        this.favoritePosts = favoritePosts;
+//    }
 
-    public void setFavoritePosts(List<Post> favoritePosts) {
-        this.favoritePosts = favoritePosts;
-    }
+//    public List<Post> getPost() {return post;}
+//
+//    public void setPost(List<Post> post) {this.post = post;}
 
     //    @JsonManagedReference
 //    public List<Post> getPost() {return post;}

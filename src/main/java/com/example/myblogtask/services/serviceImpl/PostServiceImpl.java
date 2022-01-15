@@ -28,13 +28,13 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public boolean createPost(Long userId, Post post) {
-        UserDetails userData = userRepository.findById(userId).orElseThrow(NullPointerException::new);
+        UserDetails userData = userRepository.findById(userId).get();
         Post post1 = new Post();
         post1.setTitle(post.getTitle());
         post1.setBody(post.getBody());
-
         if(userData != null){
             post1.setUser(userData);
+            post.setUser(userData);
             postRepository.save(post1);
             return true;
         }

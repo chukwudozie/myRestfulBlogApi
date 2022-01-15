@@ -23,7 +23,7 @@ public class PostLikes {
     @JoinColumn(name = "postId", referencedColumnName = "postId")
     private Post post;
 
-    private int likes;
+//    private int likes;
 
 
 }
